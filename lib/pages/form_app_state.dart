@@ -17,17 +17,16 @@ class FormAppState extends StatelessWidget {
   FormAppState({super.key});
 
   validateForm() {
-    // debugPrint('validateForm');
-    // // if(passw.value.length < 6){
-    // // passError.set('Password must be at least 6 characters');
-    // if (passw().length < 6) {
-    //   passError.value = null;
-    //   debugPrint('Good - Password length ${passw().length}');
-    // } else {
-    //   // passError.set(null);
-    //   passError.value = 'Error! Minimo de 6 catracteres';
-    //   debugPrint('Error - Password length ${passw().length}');
-    // }
+    debugPrint('validateForm');
+    if (passw.value.length >= 6) {
+      // passError.set(null);
+      passError.value = null;
+      debugPrint('Good - Password length ${passw().length}');
+    } else {
+      // passError.set('Password must be at least 6 characters');
+      passError.value = 'Error! Minimo de 6 caracteres';
+      debugPrint('Error - Password length ${passw().length}');
+    }
   }
 
   @override
