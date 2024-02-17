@@ -10,7 +10,8 @@ class FormAppState extends StatelessWidget {
   final Signal<String> email = signal('');
   final Signal<String> passw = signal('');
   late final Computed<bool> isValid =
-      computed(() => email.value.isNotEmpty && passw.value.isNotEmpty);
+      computed(() => email().isNotEmpty && passw().isNotEmpty);
+  // computed(() => email.value.isNotEmpty && passw.value.isNotEmpty);
   final Signal<String?> passError = signal<String?>(null);
 
   FormAppState({super.key});
@@ -46,10 +47,12 @@ class FormAppState extends StatelessWidget {
               flex: 4,
               child: TextField(
                 onChanged: email.set,
+                // onChanged: (value) => email.set(value),
+                // onChanged: (value) => email.value = value,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    label: Text('email'),
-                    hintText: 'Email'),
+                    label: Text('Email'),
+                    hintText: 'email'),
               ),
             ),
             const Spacer(flex: 1),
@@ -58,11 +61,12 @@ class FormAppState extends StatelessWidget {
               child: TextField(
                 onChanged: passw.set,
                 // onChanged: (value) => passw.set(value),
+                // onChanged: (value) => passw.value = value,
                 decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     label: const Text('Password'),
                     errorText: passError.watch(context), //passError.value,
-                    hintText: 'Password'),
+                    hintText: 'password'),
               ),
             ),
             const Spacer(flex: 1),
