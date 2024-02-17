@@ -1,7 +1,5 @@
 //   ///
 //  Import LIBRARIES
-import 'dart:math';
-
 import 'package:signals_flutter/signals_flutter.dart';
 //  Import FILES
 import 'user.dart';
